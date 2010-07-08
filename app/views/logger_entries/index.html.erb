@@ -1,0 +1,21 @@
+<h1>Listing logger_entries</h1>
+<p>version: <%= cromby_version %> </p>
+<table>
+  <tr>
+    <th>Log date</th>
+    <th>Logger</th>
+    <th>Priority</th>
+    <th>Message</th>
+  </tr>
+
+<% @logger_entries.each do |logger_entry| %>
+  <tr>
+    <td><%=h logger_entry.log_date %></td>
+    <td><%=h logger_entry.logger %></td>
+    <td><%=h logger_entry.priority %></td>
+    <td><%=h logger_entry.message %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  log_date: 2010-05-29 16:43:18
+  logger: MyString
+  priority: MyString
+  message: MyText
+
+two:
+  log_date: 2010-05-29 16:43:18
+  logger: MyString
+  priority: MyString
+  message: MyText

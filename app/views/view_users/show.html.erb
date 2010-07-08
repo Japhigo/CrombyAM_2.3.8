@@ -1,0 +1,23 @@
+<p>
+  <b>User name:</b>
+  <%=h @view_user.user_name %>
+</p>
+
+<p>
+  <b>User uuid:</b>
+  <%=h @view_user.user_uuid %>
+</p>
+
+<p>
+  <b>Salt:</b>
+  <%=h @view_user.salt %>
+</p>
+
+<p>
+  <b>Days until password expiry:</b>
+  <%=h @view_user.days_until_password_expiry %>
+</p>
+
+
+<%= link_to 'Edit', edit_view_user_path(@view_user) %> |
+<%= link_to 'Back', view_users_path %>

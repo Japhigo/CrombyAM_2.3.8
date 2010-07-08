@@ -1,0 +1,26 @@
+<h1>Listing view_users</h1>
+
+<table>
+  <tr>
+    <th>User name</th>
+    <th>User uuid</th>
+    <th>Salt</th>
+    <th>Days until password expiry</th>
+  </tr>
+
+<% @view_users.each do |view_user| %>
+  <tr>
+    <td><%=h view_user.user_name %></td>
+    <td><%=h view_user.user_uuid %></td>
+    <td><%=h view_user.salt %></td>
+    <td><%=h view_user.days_until_password_expiry %></td>
+    <td><%= link_to 'Show', view_user %></td>
+    <td><%= link_to 'Edit', edit_view_user_path(view_user) %></td>
+    <td><%= link_to 'Destroy', view_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New view_user', new_view_user_path %>
