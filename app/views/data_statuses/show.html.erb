@@ -1,0 +1,33 @@
+<h1>Data Status Details</h1>
+
+<p>
+  <b>Code:</b>
+  <%=h @data_status.code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @data_status.description %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @data_status.created_by %>
+</p>
+
+<p>
+  <b>Created date time:</b>
+  <%=h @data_status.created_date_time %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @data_status.updated_by %>
+</p>
+
+<p>
+  <b>Updated date time:</b>
+  <%=h @data_status.updated_date_time %>
+</p>
+
+<%= link_to 'Back', data_statuses_path %>

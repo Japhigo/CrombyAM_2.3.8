@@ -1,0 +1,54 @@
+<h1>Gender Details</h1>
+
+<p>
+  <b>Code:</b>
+  <%=h @gender.code %>
+</p>
+
+<p>
+  <b>Display:</b>
+  <%=h @gender.display %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @gender.description %>
+</p>
+
+<p>
+  <b>Available:</b>
+  <% if @gender.available then %>
+    <%=h "Yes" %>
+  <% else %>
+    <%=h "No" %>
+  <% end %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @gender.created_by %>
+</p>
+
+<p>
+  <b>Created date time:</b>
+  <%=h @gender.created_date_time %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @gender.updated_by %>
+</p>
+
+<p>
+  <b>Updated date time:</b>
+  <%=h @gender.updated_date_time %>
+</p>
+
+<p>
+  <b>Data status:</b>
+  <%=h @gender.data_status.description %>
+</p>
+
+<hr />
+<%= link_to 'Edit', edit_gender_path(@gender) %> |
+<%= link_to 'Back', genders_path %>

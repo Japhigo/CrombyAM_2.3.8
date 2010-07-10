@@ -1,0 +1,26 @@
+<div id="ref-index">
+  <h1>Data Statuses</h1>
+
+  <p>This is a Cromby system table and should not be updated</p>
+
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+
+    <% @data_statuses.each do |data_status| %>
+      <tr class="<%= cycle('index-line-odd', 'index-line-even') %>">
+        <td><%=h data_status.code %></td>
+        <td><%=h data_status.description %></td>
+        <td><%= link_to 'View', data_status %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+  <hr />
+
+  <%= link_to 'Home', :controller => "home" %>
+
+</div>

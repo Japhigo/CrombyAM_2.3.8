@@ -1,0 +1,26 @@
+<div id="ref-index">
+  <h1>Reference Data Tables</h1>
+
+  <table>
+    <tr>
+      <th>Table name</th>
+      <th>Description</th>
+    </tr>
+
+    <% @ref_data_tables.each do |ref_data_table| %>
+      <tr class="<%= cycle('index-line-odd', 'index-line-even') %>">
+        <td><%=h ref_data_table.table_name %></td>
+        <td><%=h ref_data_table.description %></td>
+        <td><%= link_to 'View', ref_data_table %></td>
+        <td><%= link_to 'Edit', edit_ref_data_table_path(ref_data_table) %></td>
+        <td><%= link_to 'Maintain', "#{ref_data_table.table_name}" %></td>
+        <td><%= link_to "Load Data", ref_data_table_ref_data_loads_path(ref_data_table) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+  <hr />
+
+  <%= link_to 'Home', :controller => "home" %>
+</div>

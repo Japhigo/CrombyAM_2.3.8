@@ -1,0 +1,12 @@
+<h1>Editing ref_data_load</h1>
+
+<% form_for(@ref_data_load) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ref_data_load %> |
+<%= link_to 'Back', ref_data_loads_path %>

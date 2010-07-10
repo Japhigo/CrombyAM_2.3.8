@@ -1,0 +1,77 @@
+<h1>Reference Data Table Details</h1>
+
+<p>
+  <b>Table name:</b>
+  <%=h @ref_data_table.table_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @ref_data_table.description %>
+</p>
+
+<p>
+  <b>Code mandatory:</b>
+  <% if @ref_data_table.code_mandatory then %>
+    <%=h "Yes" %>
+  <% else %>
+    <%=h "No" %>
+  <% end %>
+</p>
+
+<p>
+  <b>Code min length:</b>
+  <%=h @ref_data_table.code_min_length %>
+</p>
+
+<p>
+  <b>Code max length:</b>
+  <%=h @ref_data_table.code_max_length %>
+</p>
+
+<p>
+  <b>Code format:</b>
+  <%=h @ref_data_table.code_format %>
+</p>
+
+<p>
+  <b>Display mandatory:</b>
+  <% if @ref_data_table.display_mandatory then %>
+    <%=h "Yes" %>
+  <% else %>
+    <%=h "No" %>
+  <% end %>
+</p>
+
+<p>
+  <b>Description mandatory:</b>
+  <% if @ref_data_table.description_mandatory then %>
+    <%=h "Yes" %>
+  <% else %>
+    <%=h "No" %>
+  <% end %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @ref_data_table.created_by %>
+</p>
+
+<p>
+  <b>Created date time:</b>
+  <%=h @ref_data_table.created_date_time %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @ref_data_table.updated_by %>
+</p>
+
+<p>
+  <b>Updated date time:</b>
+  <%=h @ref_data_table.updated_date_time %>
+</p>
+
+<hr />
+<%= link_to 'Edit', edit_ref_data_table_path(@ref_data_table) %> |
+<%= link_to 'Back', ref_data_tables_path %>

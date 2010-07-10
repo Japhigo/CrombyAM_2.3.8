@@ -3,3 +3,12 @@
 body {
     font-family: tahoma, verdana, arial, helvetica, sans_serif;
 }
+
+#top-menu .right {
+  text-align: right;
+}
+
+#top-menu a {
+  font-size: small;
+  text-align: right;
+}

@@ -1,0 +1,28 @@
+<h1>Password reset</h1>
+
+<% form_for(@viw_user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name, :disabled => "disabled" %>
+  </p>
+  <p>
+    <%= f.label :old_password %><br />
+    <%= f.password_field :old_password %>
+  </p>
+  <p>
+    <%= f.label :new_password %><br />
+    <%= f.password_field :new_password %>
+  </p>
+  <p>
+    <%= f.label :new_password_confirmation, 'Confirmation' %><br />
+    <%= f.password_field :new_password_confirmation %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<hr />
+<%= link_to 'Log out', logout_path %>

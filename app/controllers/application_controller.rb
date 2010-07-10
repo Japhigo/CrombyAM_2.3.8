@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 protected
 
   def am_authorise
-    unless ViewUser.find_by_id(session[:user_id])
-      flash[:notice] = "error:Please log in"
+    unless ViwUser.find_by_user_uuid(session[:user_uuid])
+      flash[:notice] = "Please log in"
       redirect_to login_path
     end
   end

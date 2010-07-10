@@ -1,0 +1,44 @@
+<h1>Editing Reference Data Table</h1>
+
+<% form_for(@ref_data_table) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :table_name %><br />
+    <%= f.text_field :table_name, :disabled => "disabled" %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :code_mandatory %><br />
+    <%= f.check_box :code_mandatory %>
+  </p>
+  <p>
+    <%= f.label :code_min_length %><br />
+    <%= f.text_field :code_min_length %>
+  </p>
+  <p>
+    <%= f.label :code_max_length %><br />
+    <%= f.text_field :code_max_length %>
+  </p>
+  <p>
+    <%= f.label :code_format %><br />
+    <%= f.text_field :code_format %>
+  </p>
+  <p>
+    <%= f.label :display_mandatory %><br />
+    <%= f.check_box :display_mandatory %>
+  </p>
+  <p>
+    <%= f.label :description_mandatory %><br />
+    <%= f.check_box :description_mandatory %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+<hr />
+<%= link_to 'Show', @ref_data_table %> |
+<%= link_to 'Back', ref_data_tables_path %>

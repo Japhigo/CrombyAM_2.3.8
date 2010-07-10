@@ -1,6 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :view_users
+  map.resources :genders, :except => :delete, :member => { :redundant => :put }
+
+  map.resources :ref_data_tables, :except => [:new, :create, :delete], :has_many => :ref_data_loads
+
+  map.resources :viw_users
+
+  map.resources :ref_data_loads
+
+  map.resources :data_statuses, :only => [:index, :show]
 
   map.resources :logger_entries, :only => :index
 

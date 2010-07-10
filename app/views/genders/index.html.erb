@@ -1,0 +1,41 @@
+<div id="ref-index">
+  <h1>Genders</h1>
+
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Display</th>
+      <th>Description</th>
+      <th>Available</th>
+      <th>Data status</th>
+    </tr>
+
+    <% @genders.each do |gender| %>
+      <tr class="<%= cycle('index-line-odd', 'index-line-even') %>">
+        <td><%=h gender.code %></td>
+        <td><%=h gender.display %></td>
+        <td><%=h gender.description %></td>
+        <td class="center">
+          <% if gender.available then%>
+            <%= image_tag("available.png", :alt => "Available") %>
+          <% else %>
+            <%= image_tag("not_available.png", :alt => "Not available") %>
+          <% end %>
+        </td>
+        <td><%=h gender.data_status.description %></td>
+        <td><%= link_to 'View', gender %></td>
+        <td><%= link_to 'Edit', edit_gender_path(gender) %></td>
+          <% if gender.data_status_code != -1 then %>
+            <td><%= link_to 'Redundant', redundant_gender_path(gender), :confirm => "Are you sure?", :method => :put %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New', new_gender_path %>
+  <hr />
+  <%= link_to 'Reference Data Tables', ref_data_tables_path %> |
+  <%= link_to 'Home', :controller => "home" %>
+</div>

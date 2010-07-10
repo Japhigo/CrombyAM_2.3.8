@@ -1,0 +1,38 @@
+<h1>Editing Gender</h1>
+
+<% form_for(@gender) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :display %><br />
+    <%= f.text_field :display %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :available %><br />
+    <%= f.check_box :available %>
+  </p>
+  <p>
+    <% fields_for (@gender.data_status) do |field| %>
+      <%= field.label "Data status" %><br />
+      <%= field.text_field :description, :disabled => "disabled" %>
+      <% if @gender.data_status_code == -1 then %>
+        <%=h "Note: Updating this entry will restore it for use" %>
+      <% end %>
+
+    <% end %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+<hr />
+<%= link_to 'Show', @gender %> |
+<%= link_to 'Back', genders_path %>

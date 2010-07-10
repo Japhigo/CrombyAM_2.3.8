@@ -2,14 +2,14 @@ class HomeController < ApplicationController
 
   def login
     if request.post?
-      user = ViewUser.authenticate(params[:user_name], params[:password])
+      user = ViwUser.authenticate(params[:user_name], params[:password])
       if user
         reset_session
+        session[:user_uuid] = user.user_uuid
         if user.days_until_password_expiry < 0
-          @days_til_expiry = user.days_until_password_expiry
-          flash.now[:notice] = "Password has expired, please update"
+          flash[:notice] = "Password has expired, please update"
+          redirect_to edit_viw_user_path(user)
         else
-          session[:user_id] = user.id
           redirect_to(:action => "index")
         end
       else
@@ -19,9 +19,10 @@ class HomeController < ApplicationController
   end
 
   def logout
-    session[:user] = nil
-    flash[:notice] = "Logged out"
-    redirect_to logout_path
+    #session[:user_uuid]
+    #reset_session
+    #flash[:notice] = "Logged out"
+    #redirect_to logout_path
   end
 
   def index
