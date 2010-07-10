@@ -11,7 +11,7 @@ class ViwUser < ActiveRecord::Base
   validates_confirmation_of :new_password
   
   validate :password_supplied
-  #validate :password_changed
+  validate :password_changed
 
   before_update :get_new_salt_and_hash
 

@@ -1,6 +1,6 @@
 module CrombyAuthenticate
 
-  def CrombyAuthenticate.password_valid? (password, hashed_password, salt)
+  def CrombyAuthenticate.password_valid?(password, hashed_password, salt)
     self.encrypted_password(password, salt) == hashed_password
   end
   

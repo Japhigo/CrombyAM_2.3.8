@@ -19,24 +19,19 @@ class Gender < ActiveRecord::Base
 
   validates_presence_of :description, :if => :description_mandatory?
 
-
   def make_redundant
     self.available = false
     self.data_status_code = -1
     self.updated_date_time = Time.now
-    self.updated_by = "joe_user"
   end
 
   def create_audit_data
     self.created_date_time = Time.now
-    self.created_by = "joe_user"
     self.updated_date_time = Time.now
-    self.updated_by = "joe_user"
   end
 
   def update_audit_data
     self.updated_date_time = Time.now
-    self.updated_by = "joe_user"
   end
 
 protected

@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :am_authorise, :except => :login
+  before_filter :am_authenticate, :except => :login
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  def am_authorise
+  def am_authenticate
     unless ViwUser.find_by_user_uuid(session[:user_uuid])
       flash[:notice] = "Please log in"
       redirect_to login_path

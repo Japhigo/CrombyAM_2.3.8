@@ -14,4 +14,10 @@ module ApplicationHelper
     File.exist?(RAILS_ROOT + "/public/stylesheets/" + stylesheet + '.css')
   end
 
+  def cromby_version
+    @cromby_version = PgProc.current_version()
+    #We don't want the first row returned from the function as this is the header
+    @cromby_version[1]
+
+  end
 end

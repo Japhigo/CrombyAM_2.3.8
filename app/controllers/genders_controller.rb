@@ -1,5 +1,7 @@
 class GendersController < ApplicationController
   
+  before_filter :am_authorize
+
   before_filter :find_gender, :only => [:show, :edit, :update, :redundant]
 
   # GET /genders
@@ -26,7 +28,7 @@ class GendersController < ApplicationController
   # GET /genders/new.xml
   def new
     @gender = Gender.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @gender }
@@ -41,6 +43,8 @@ class GendersController < ApplicationController
   # POST /genders.xml
   def create
     @gender = Gender.new(params[:gender])
+    @gender.created_by = @current_user
+    @gender.updated_by = @current_user
 
     @gender.create_audit_data
     
@@ -87,6 +91,17 @@ class GendersController < ApplicationController
     end
   end
   
+protected
+
+  def am_authorize
+    user_name = PgProc.authorize_user(session[:user_uuid], 'ref_data_admin')
+    unless user_name[1]
+      flash[:notice] = "You do not have the permissions to use this function"
+      redirect_to(:controller => "home")
+    end
+    @current_user = user_name[1]
+  end
+
 private
 
   def find_gender

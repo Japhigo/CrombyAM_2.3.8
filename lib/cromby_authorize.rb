@@ -1,8 +1,8 @@
 module CrombyAuthorize
 
-  def authorize_user(user_uuid, user_role)
+  def CrombyAuthorize.authorize_user(user_uuid, user_role)
     user_name = PgProc.authorize_user(user_uuid, user_role)
-    username[1]
+    user_name[1]
   end
   
 end
