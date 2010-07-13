@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :contact_point_usage_types, :member => { :redundant => :put }
+
   map.resources :genders, :except => :delete, :member => { :redundant => :put }
 
   map.resources :ref_data_tables, :except => [:new, :create, :delete], :has_many => :ref_data_loads

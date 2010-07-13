@@ -1,6 +1,10 @@
+require 'cromby_authorize'
+
 class RefDataTablesController < ApplicationController
 
   before_filter :am_authorize
+
+  before_filter :find_ref_data_table, :only => [:show, :edit, :update]
 
   def index
     @ref_data_tables = RefDataTable.all(:order => "table_name")
@@ -12,8 +16,6 @@ class RefDataTablesController < ApplicationController
   end
 
   def show
-    @ref_data_table = RefDataTable.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @ref_data_table }
@@ -21,11 +23,9 @@ class RefDataTablesController < ApplicationController
   end
 
   def edit
-    @ref_data_table = RefDataTable.find(params[:id])
   end
 
   def update
-    @ref_data_table = RefDataTable.find(params[:id])
     @ref_data_table.updated_by = @current_user
     
     respond_to do |format|
@@ -42,11 +42,17 @@ class RefDataTablesController < ApplicationController
 protected
 
   def am_authorize
-    user_name = PgProc.authorize_user(session[:user_uuid], 'ref_data_admin')
-    unless user_name[1]
+    user_name = CrombyAuthorize.authorize_user(session[:user_uuid], 'ref_data_admin')
+    unless user_name
       flash[:notice] = "You do not have the permissions to use this function"
       redirect_to(:controller => "home")
     end
-    @current_user = user_name[1]
+    @current_user = user_name
+  end
+
+private
+
+  def find_ref_data_table
+    @ref_data_table = RefDataTable.find(params[:id])
   end
 end

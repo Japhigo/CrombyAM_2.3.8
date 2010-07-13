@@ -4,8 +4,6 @@ module CrombyAuthenticate
     self.encrypted_password(password, salt) == hashed_password
   end
   
-#protected
-
   def CrombyAuthenticate.new_salt
     (1..512).collect { (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }.join
   end

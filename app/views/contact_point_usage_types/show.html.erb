@@ -1,0 +1,53 @@
+<h1>Contact Point Usage Type Details</h1>
+
+<p>
+  <b>Code:</b>
+  <%=h @contact_point_usage_type.code %>
+</p>
+
+<p>
+  <b>Display:</b>
+  <%=h @contact_point_usage_type.display %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @contact_point_usage_type.description %>
+</p>
+
+<p>
+  <b>Available:</b>
+  <% if @contact_point_usage_type.available then %>
+    <%=h "Yes" %>
+  <% else %>
+    <%=h "No" %>
+  <% end %>
+</p>
+<p>
+  <b>Created by:</b>
+  <%=h @contact_point_usage_type.created_by %>
+</p>
+
+<p>
+  <b>Created date time:</b>
+  <%=h @contact_point_usage_type.created_date_time %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @contact_point_usage_type.updated_by %>
+</p>
+
+<p>
+  <b>Updated date time:</b>
+  <%=h @contact_point_usage_type.updated_date_time %>
+</p>
+
+<p>
+  <b>Data status:</b>
+  <%=h @contact_point_usage_type.data_status.description %>
+</p>
+
+<hr />
+<%= link_to 'Edit', edit_contact_point_usage_type_path(@contact_point_usage_type) %> |
+<%= link_to 'Back', contact_point_usage_types_path %>

@@ -1,0 +1,41 @@
+<div id="ref-index">
+  <h1>Contact Point Usage Types</h1>
+
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Display</th>
+      <th>Description</th>
+      <th>Available</th>
+      <th>Data status</th>
+    </tr>
+
+    <% @contact_point_usage_types.each do |contact_point_usage_type| %>
+      <tr class="<%= cycle('index-line-odd', 'index-line-even') %>">
+        <td><%=h contact_point_usage_type.code %></td>
+        <td><%=h contact_point_usage_type.display %></td>
+        <td><%=h contact_point_usage_type.description %></td>
+        <td class="center">
+          <% if contact_point_usage_type.available then%>
+            <%= image_tag("available.png", :alt => "Available") %>
+          <% else %>
+            <%= image_tag("not_available.png", :alt => "Not available") %>
+          <% end %>
+        </td>
+        <td><%=h contact_point_usage_type.data_status.description %></td>
+        <td><%= link_to 'View', contact_point_usage_type %></td>
+        <td><%= link_to 'Edit', edit_contact_point_usage_type_path(contact_point_usage_type) %></td>
+          <% if contact_point_usage_type.data_status_code != -1 then %>
+            <td><%= link_to 'Redundant', redundant_contact_point_usage_type_path(contact_point_usage_type), :confirm => "Are you sure?", :method => :put %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New', new_contact_point_usage_type_path %>
+  <hr />
+  <%= link_to 'Reference Data Tables', ref_data_tables_path %> |
+  <%= link_to 'Home', :controller => "home" %>
+</div>

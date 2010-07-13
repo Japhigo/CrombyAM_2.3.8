@@ -2,8 +2,6 @@ require 'cromby_authenticate'
 
 class ViwUser < ActiveRecord::Base
 
-  extend CrombyAuthenticate
-
   attr_accessor :old_password
   attr_accessor :new_password
 
@@ -18,7 +16,7 @@ class ViwUser < ActiveRecord::Base
   def self.authenticate(user_name, password)
     user = self.find_by_user_name(user_name)
     if user
-      if CrombyAuthenticate::password_valid?(password, user.hashed_password, user.salt)
+      if CrombyAuthenticate.password_valid?(password, user.hashed_password, user.salt)
         user
       else
         user = nil
@@ -29,8 +27,8 @@ class ViwUser < ActiveRecord::Base
 protected
 
   def get_new_salt_and_hash
-    self.salt = CrombyAuthenticate::new_salt
-    self.hashed_password = CrombyAuthenticate::encrypted_password(self.new_password, self.salt)
+    self.salt = CrombyAuthenticate.new_salt
+    self.hashed_password = CrombyAuthenticate.encrypted_password(self.new_password, self.salt)
   end
 
   def password_supplied

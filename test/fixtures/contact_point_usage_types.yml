@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code: MyString
+  display: MyString
+  description: MyString
+  available: false
+  created_by: MyString
+  created_date_time: 2010-07-11 17:01:32
+  updated_by: MyString
+  updated_date_time: 2010-07-11 17:01:32
+  data_status_code: 1
+
+two:
+  code: MyString
+  display: MyString
+  description: MyString
+  available: false
+  created_by: MyString
+  created_date_time: 2010-07-11 17:01:32
+  updated_by: MyString
+  updated_date_time: 2010-07-11 17:01:32
+  data_status_code: 1

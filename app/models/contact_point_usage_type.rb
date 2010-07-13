@@ -1,14 +1,14 @@
 require 'cromby_ref_data'
 
-class Gender < ActiveRecord::Base
+class ContactPointUsageType < ActiveRecord::Base
 
   include CrombyRefData
-  
-  set_table_name "cin.genders"
-  
+
+  set_table_name "cin.contact_point_usage_types"
+
   belongs_to :data_status, :foreign_key => "data_status_code"
   
-  @@ref_data_table = RefDataTable.find(:first, :conditions => "table_name = 'genders'")
+  @@ref_data_table = RefDataTable.find(:first, :conditions => "table_name = 'contact_point_usage_types'")
 
   validates_presence_of :code, :if => :code_mandatory?
   validates_length_of :code, :maximum => 10, :if => :code?
@@ -33,7 +33,7 @@ protected
     errors.add(:code, "Code must be in the right format: " << @@ref_data_table.code_format) if
     self.code !~ Regexp.new(@@ref_data_table.code_format)
   end
-  
+
   def code_mandatory?
     return @@ref_data_table.code_mandatory
   end

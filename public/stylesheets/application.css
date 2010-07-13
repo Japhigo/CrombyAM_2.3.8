@@ -10,5 +10,6 @@ body {
 
 #top-menu a {
   font-size: small;
-  text-align: right;
+  position:fixed;
+  right:5px;
 }

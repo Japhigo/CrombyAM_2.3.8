@@ -1,11 +1,11 @@
+require 'cromby_authorize'
+
 class GendersController < ApplicationController
   
   before_filter :am_authorize
 
   before_filter :find_gender, :only => [:show, :edit, :update, :redundant]
 
-  # GET /genders
-  # GET /genders.xml
   def index
     @genders = Gender.all(:include => :data_status, :order => "code, display, description")
     
@@ -15,8 +15,6 @@ class GendersController < ApplicationController
     end
   end
 
-  # GET /genders/1
-  # GET /genders/1.xml
   def show
     respond_to do |format|
       format.html # show.html.erb
@@ -24,8 +22,6 @@ class GendersController < ApplicationController
     end
   end
 
-  # GET /genders/new
-  # GET /genders/new.xml
   def new
     @gender = Gender.new
     
@@ -35,19 +31,14 @@ class GendersController < ApplicationController
     end
   end
 
-  # GET /genders/1/edit
   def edit
   end
 
-  # POST /genders
-  # POST /genders.xml
   def create
     @gender = Gender.new(params[:gender])
     @gender.created_by = @current_user
     @gender.updated_by = @current_user
 
-    @gender.create_audit_data
-    
     respond_to do |format|
       if @gender.save
         flash[:notice] = 'Gender was successfully created.'
@@ -60,12 +51,9 @@ class GendersController < ApplicationController
     end
   end
 
-  # PUT /genders/1
-  # PUT /genders/1.xml
   def update
+    @gender.updated_by = @current_user
 
-    @gender.update_audit_data
-    
     respond_to do |format|
       if @gender.update_attributes(params[:gender])
         flash[:notice] = 'Gender was successfully updated.'
@@ -79,8 +67,8 @@ class GendersController < ApplicationController
   end
 
   def redundant
-
-    @gender.make_redundant
+    @gender.redundant
+    @gender.updated_by = @current_user
 
     respond_to do |format|
       if @gender.update_attributes(params[:gender])
@@ -94,12 +82,12 @@ class GendersController < ApplicationController
 protected
 
   def am_authorize
-    user_name = PgProc.authorize_user(session[:user_uuid], 'ref_data_admin')
-    unless user_name[1]
+    user_name = CrombyAuthorize.authorize_user(session[:user_uuid], 'ref_data_admin')
+    unless user_name
       flash[:notice] = "You do not have the permissions to use this function"
       redirect_to(:controller => "home")
     end
-    @current_user = user_name[1]
+    @current_user = user_name
   end
 
 private
@@ -107,4 +95,5 @@ private
   def find_gender
     @gender = Gender.find(params[:id])
   end
+  
 end
