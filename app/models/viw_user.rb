@@ -15,13 +15,13 @@ class ViwUser < ActiveRecord::Base
 
   def self.authenticate(user_name, password)
     user = self.find_by_user_name(user_name)
-    if user
-      if CrombyAuthenticate.password_valid?(password, user.hashed_password, user.salt)
-        user
-      else
-        user = nil
-      end
-    end
+    #if user
+    #  if CrombyAuthenticate.password_valid?(password, user.hashed_password, user.salt)
+    #    user
+    #  else
+    #    user = nil
+    #  end
+    #end
   end
 
 protected

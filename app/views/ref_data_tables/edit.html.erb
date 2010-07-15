@@ -28,10 +28,6 @@
     <%= f.text_field :code_format %>
   </p>
   <p>
-    <%= f.label :display_mandatory %><br />
-    <%= f.check_box :display_mandatory %>
-  </p>
-  <p>
     <%= f.label :description_mandatory %><br />
     <%= f.check_box :description_mandatory %>
   </p>
@@ -39,6 +35,8 @@
     <%= f.submit 'Update' %>
   </p>
 <% end %>
-<hr />
-<%= link_to 'Show', @ref_data_table %> |
-<%= link_to 'Back', ref_data_tables_path %>
+<br/>
+<div id="lower-menu">
+  <p><%= link_to 'Show', @ref_data_table %> &middot;
+<%= link_to 'Back', ref_data_tables_path %></p>
+</div>

@@ -35,15 +35,6 @@
 </p>
 
 <p>
-  <b>Display mandatory:</b>
-  <% if @ref_data_table.display_mandatory then %>
-    <%=h "Yes" %>
-  <% else %>
-    <%=h "No" %>
-  <% end %>
-</p>
-
-<p>
   <b>Description mandatory:</b>
   <% if @ref_data_table.description_mandatory then %>
     <%=h "Yes" %>
@@ -71,7 +62,8 @@
   <b>Updated date time:</b>
   <%=h @ref_data_table.updated_date_time %>
 </p>
-
-<hr />
-<%= link_to 'Edit', edit_ref_data_table_path(@ref_data_table) %> |
-<%= link_to 'Back', ref_data_tables_path %>
+<br/>
+<div id="lower-menu">
+  <p><%= link_to 'Edit', edit_ref_data_table_path(@ref_data_table) %> &middot;
+<%= link_to 'Back', ref_data_tables_path %></p>
+</div>
