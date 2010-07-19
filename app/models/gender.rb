@@ -30,8 +30,10 @@ protected
   end
 
   def code_is_right_format
-    errors.add(:code, "Code must be in the right format: " << @@ref_data_table.code_format) if
-    self.code !~ Regexp.new(@@ref_data_table.code_format)
+    if @@ref_data_table.code_format
+      errors.add(:code, "Code must be in the right format: " << @@ref_data_table.code_format) if
+        self.code !~ Regexp.new(@@ref_data_table.code_format)
+    end
   end
   
   def code_mandatory?

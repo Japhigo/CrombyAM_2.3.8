@@ -47,7 +47,8 @@
   <b>Data status:</b>
   <%=h @contact_point_usage_type.data_status.description %>
 </p>
-
-<hr />
-<%= link_to 'Edit', edit_contact_point_usage_type_path(@contact_point_usage_type) %> |
-<%= link_to 'Back', contact_point_usage_types_path %>
+<br/>
+<div id="lower-menu">
+  <p><%= link_to 'Edit', edit_contact_point_usage_type_path(@contact_point_usage_type) %> &middot;
+<%= link_to 'Back', contact_point_usage_types_path %></p>
+</div>

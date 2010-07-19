@@ -4,6 +4,10 @@ body {
     font-family: tahoma, verdana, arial, helvetica, sans_serif;
 }
 
+a {
+  text-decoration:none;
+}
+
 #top-menu p {
   text-align: right;
   font-size: small;
@@ -25,5 +29,4 @@ body {
 
 #lower-menu a {
   font-size: small;
-  text-decoration:none;
 }

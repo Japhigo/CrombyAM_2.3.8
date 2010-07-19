@@ -48,7 +48,8 @@
   <b>Data status:</b>
   <%=h @gender.data_status.description %>
 </p>
-
-<hr />
-<%= link_to 'Edit', edit_gender_path(@gender) %> |
-<%= link_to 'Back', genders_path %>
+<br/>
+<div id="lower-menu">
+  <p><%= link_to 'Edit', edit_gender_path(@gender) %> &middot;
+<%= link_to 'Back', genders_path %></p>
+</div>
