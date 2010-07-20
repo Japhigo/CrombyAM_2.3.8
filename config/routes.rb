@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.login '/login', :controller => 'home', :action => 'login'
   map.logout '/logout', :controller => 'home', :action => 'logout'
+  map.confirm_logout '/confirm_logout', :controller => 'home', :action => 'confirm_logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

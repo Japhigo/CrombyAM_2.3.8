@@ -19,13 +19,16 @@ class HomeController < ApplicationController
   end
 
   def logout
-    #flash[:notice] = "You are now logged out of Cromby, goodbye!"
-    #session.delete
-    #redirect_to login_path
-
   end
 
   def index
+  end
+
+  def confirm_logout
+    session[:user_uuid] = nil
+    reset_session
+    flash[:notice] = "You have logged out"
+    redirect_to login_path
   end
 
 end
