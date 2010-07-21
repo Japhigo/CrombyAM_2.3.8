@@ -1,5 +1,9 @@
 /* Styles for reference data lists */
 
+#ref-index a {
+  font-size: small;
+}
+
 #ref-index th {
     background-color: #99CCFF;
     text-align: left;

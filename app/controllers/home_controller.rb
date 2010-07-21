@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 
+  layout :get_layout
+
   def login
     if request.post?
       user = ViwUser.authenticate(params[:user_name], params[:password])
@@ -31,4 +33,13 @@ class HomeController < ApplicationController
     redirect_to login_path
   end
 
+  def get_layout
+    if action_name == 'login'
+      'login_page'
+    elsif action_name == 'logout'
+      'logout_page'
+    else
+      'application'
+    end
+  end
 end

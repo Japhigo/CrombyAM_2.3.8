@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title><%=  controller_name %> : <%= controller.action_name %></title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag(action_style,
+      :media => "screen"
+      ) if stylesheet_exist?(action_style) %>
+    <%= stylesheet_link_tag(controller.controller_name,
+      :media => "screen"
+      ) if stylesheet_exist?(controller.controller_name) %>
+  </head>
+  <body>
+    <img src="/images/cromby.png" alt="Cromby - open-source relationship management system" />
+    <div id="top-menu">
+      <p>Cromby</p>
+    </div>
+
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <%= yield %>
+
+  </body>
+</html>
