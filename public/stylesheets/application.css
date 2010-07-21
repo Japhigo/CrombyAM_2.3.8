@@ -5,6 +5,7 @@ body {
 }
 
 a {
+  font-size: small;
   text-decoration:none;
 }
 
@@ -25,8 +26,4 @@ a {
   font-size: small;
   border-top: 1px solid #99CCFF;
   border-bottom: 2px solid #99CCFF;
-}
-
-#lower-menu a {
-  font-size: small;
 }
