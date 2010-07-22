@@ -1,34 +1,39 @@
+<div id="ref-show">
+
 <h1>Data Status Details</h1>
 
-<p>
-  <b>Code:</b>
-  <%=h @data_status.code %>
-</p>
+<table>
+<tr>
+  <td class="title-cell"><b>Code</b></td>
+  <td><%=h @data_status.code %></td>
+</tr>
 
-<p>
-  <b>Description:</b>
-  <%=h @data_status.description %>
-</p>
+<tr>
+  <td class="title-cell"><b>Description</b></td>
+  <td><%=h @data_status.description %></td>
+</tr>
 
-<p>
-  <b>Created by:</b>
-  <%=h @data_status.created_by %>
-</p>
+<tr>
+  <td class="title-cell"><b>Created by</b></td>
+  <td><%=h @data_status.created_by %></td>
+</tr>
 
-<p>
-  <b>Created date time:</b>
-  <%=h @data_status.created_date_time %>
-</p>
+<tr>
+  <td class="title-cell"><b>Created date time</b></td>
+  <td><%=h @data_status.created_date_time %></td>
+</tr>
 
-<p>
-  <b>Updated by:</b>
-  <%=h @data_status.updated_by %>
-</p>
+<tr>
+  <td class="title-cell"><b>Updated by</b></td>
+  <td><%=h @data_status.updated_by %></td>
+</tr>
 
-<p>
-  <b>Updated date time:</b>
-  <%=h @data_status.updated_date_time %>
-</p>
+<tr>
+  <td class="title-cell"><b>Updated date time</b></td>
+  <td><%=h @data_status.updated_date_time %></td>
+</tr>
+</table>
+</div>
 <br />
 <div id="lower-menu">
   <p><%= link_to 'Back', data_statuses_path %></p>

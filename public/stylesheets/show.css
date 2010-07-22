@@ -1,17 +1,8 @@
-/* 
-    Document   : show
-    Created on : Apr 22, 2010, 8:44:44 PM
-    Author     : pip
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
 root { 
     display: block;
 }
 
+#ref-show .title-cell {
+    background-color: #99CCFF;
+    text-align: left;
+}
