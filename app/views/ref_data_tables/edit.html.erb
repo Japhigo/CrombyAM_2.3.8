@@ -1,40 +1,46 @@
-<h1>Editing Reference Data Table</h1>
+<div id="ref-edit">
+
+  <h2>Editing Reference Data Table</h2>
 
 <% form_for(@ref_data_table) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :table_name %><br />
-    <%= f.text_field :table_name, :disabled => "disabled" %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :code_mandatory %><br />
-    <%= f.check_box :code_mandatory %>
-  </p>
-  <p>
-    <%= f.label :code_min_length %><br />
-    <%= f.text_field :code_min_length %>
-  </p>
-  <p>
-    <%= f.label :code_max_length %><br />
-    <%= f.text_field :code_max_length %>
-  </p>
-  <p>
-    <%= f.label :code_format %><br />
-    <%= f.text_field :code_format %>
-  </p>
-  <p>
-    <%= f.label :description_mandatory %><br />
-    <%= f.check_box :description_mandatory %>
-  </p>
+  <table>
+    <tr>
+      <td class="title-cell"><b><%= f.label :table_name %></b></td>
+      <td><%= f.text_field :table_name, :disabled => "disabled" %></td>
+    </tr>
+  <tr>
+      <td class="title-cell"><b><%= f.label :description %></b></td>
+    <td><%= f.text_field :description %></td>
+  </tr>
+  <tr>
+      <td class="title-cell"><b><%= f.label :code_mandatory %></b></td>
+    <td><%= f.check_box :code_mandatory %></td>
+    </tr>
+  <tr>
+      <td class="title-cell"><b><%= f.label :code_min_length %></b></td>
+    <td><%= f.text_field :code_min_length %></td>
+    </tr>
+  <tr>
+      <td class="title-cell"><b><%= f.label :code_max_length %></b></td>
+    <td><%= f.text_field :code_max_length %></td>
+    </tr>
+  <tr>
+      <td class="title-cell"><b><%= f.label :code_format %></b></td>
+    <td><%= f.text_field :code_format %></td>
+  </tr>
+  <tr>
+      <td class="title-cell"><b><%= f.label :description_mandatory %></b></td>
+    <td><%= f.check_box :description_mandatory %></td>
+    </tr>
+  </table>
   <p>
     <%= f.submit 'Update' %>
   </p>
+
 <% end %>
+</div>
 <br/>
 <div id="lower-menu">
   <p><%= link_to 'Show', @ref_data_table %> &middot;

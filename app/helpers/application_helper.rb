@@ -5,8 +5,8 @@ module ApplicationHelper
   def action_style(action = nil)
     @action_style = action ||
     @action_style ||
-    { "create" => "new", "update" => "new",
-    "edit" => "new" }[controller.action_name] ||
+    { "create" => "new", "update" => "edit",
+    "edit" => "edit" }[controller.action_name] ||
     controller.action_name
   end
 

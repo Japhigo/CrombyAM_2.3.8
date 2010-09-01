@@ -1,67 +1,72 @@
-<h1>Reference Data Table Details</h1>
+<div id="ref-show">
 
-<p>
-  <b>Table name:</b>
-  <%=h @ref_data_table.table_name %>
-</p>
+<h2>Reference Data Table Details</h2>
 
-<p>
-  <b>Description:</b>
-  <%=h @ref_data_table.description %>
-</p>
+<table>
+<tr>
+  <td class="title-cell"><b>Table name</b></td>
+  <td><%=h @ref_data_table.table_name %></td>
+</tr>
 
-<p>
-  <b>Code mandatory:</b>
-  <% if @ref_data_table.code_mandatory then %>
+<tr>
+  <td class="title-cell"><b>Description</b></td>
+  <td><%=h @ref_data_table.description %></td>
+</tr>
+
+<tr>
+  <td class="title-cell"><b>Code mandatory</b></td>
+  <td><% if @ref_data_table.code_mandatory then %>
     <%=h "Yes" %>
   <% else %>
     <%=h "No" %>
-  <% end %>
-</p>
+  <% end %></td>
+</tr>
 
-<p>
-  <b>Code min length:</b>
-  <%=h @ref_data_table.code_min_length %>
-</p>
+<tr>
+  <td class="title-cell"><b>Code min length</b></td>
+  <td><%=h @ref_data_table.code_min_length %></td>
+</tr>
 
-<p>
-  <b>Code max length:</b>
-  <%=h @ref_data_table.code_max_length %>
-</p>
+<tr>
+  <td class="title-cell"><b>Code max length</b></td>
+  <td><%=h @ref_data_table.code_max_length %></td>
+</tr>
 
-<p>
-  <b>Code format:</b>
-  <%=h @ref_data_table.code_format %>
-</p>
+<tr>
+  <td class="title-cell"><b>Code format</b></td>
+  <td><%=h @ref_data_table.code_format %></td>
+</tr>
 
-<p>
-  <b>Description mandatory:</b>
-  <% if @ref_data_table.description_mandatory then %>
+<tr>
+  <td class="title-cell"><b>Description mandatory</b></td>
+  <td><% if @ref_data_table.description_mandatory then %>
     <%=h "Yes" %>
   <% else %>
     <%=h "No" %>
-  <% end %>
-</p>
+  <% end %></td>
+</tr>
 
-<p>
-  <b>Created by:</b>
-  <%=h @ref_data_table.created_by %>
-</p>
+<tr>
+  <td class="title-cell"><b>Created by</b></td>
+  <td><%=h @ref_data_table.created_by %></td>
+</tr>
 
-<p>
-  <b>Created date time:</b>
-  <%=h @ref_data_table.created_date_time %>
-</p>
+<tr>
+  <td class="title-cell"><b>Created date time</b></td>
+  <td><%=h @ref_data_table.created_date_time %></td>
+</tr>
 
-<p>
-  <b>Updated by:</b>
-  <%=h @ref_data_table.updated_by %>
-</p>
+<tr>
+  <td class="title-cell"><b>Updated by</b></td>
+  <td><%=h @ref_data_table.updated_by %></td>
+</tr>
 
-<p>
-  <b>Updated date time:</b>
-  <%=h @ref_data_table.updated_date_time %>
-</p>
+<tr>
+  <td class="title-cell"><b>Updated date time</b></td>
+  <td><%=h @ref_data_table.updated_date_time %></td>
+</tr>
+</table>
+</div>
 <br/>
 <div id="lower-menu">
   <p><%= link_to 'Edit', edit_ref_data_table_path(@ref_data_table) %> &middot;

@@ -8,6 +8,18 @@ a {
   text-decoration:none;
 }
 
+td {
+    padding-right:5px;
+}
+
+th {
+    padding-right:5px;
+}
+
+textarea:focus, input:focus {
+    background-color: #CCFFFF;
+}
+
 #top-menu p {
   text-align: right;
   font-size: small;
